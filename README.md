@@ -1,2 +1,2 @@
 # react-api-frontend
-Frontend for API primarily made in React.
+Frontend for API, primarily made in React.
