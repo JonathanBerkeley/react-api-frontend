@@ -1,3 +1,9 @@
+import { Route } from 'react-router-dom'
+import { useState, useEffect } from 'react'
+
+// Components
+import Navbar from './components/Navbar'
+
 import './App.css'
 
 function App() {
