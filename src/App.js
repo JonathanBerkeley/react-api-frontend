@@ -1,28 +1,58 @@
-import { Route } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState, useEffect } from 'react'
-import { ThemeProvider, Box, BaseStyles, Heading } from '@primer/react'
+import { ThemeProvider, theme } from '@primer/react'
+import deepmerge from 'deepmerge'
+
+// Styles
+import './styles/App.css'
+import "@fontsource/roboto"
 
 // Components
 import Navbar from './components/Navbar'
 
-import './styles/App.css'
+// Pages
+import Home from './pages/Home'
+import Admin from './pages/admin/Index'
 
-function App() {
+const customTheme = deepmerge(theme, {
+    fonts: {
+        "normal": "Roboto",
+        "mono": "Roboto"
+    }
+})
+
+const App = () => {
+    const [authenticated, setAuthenticated] = useState(false)
+
+    useEffect(() => {
+        if (localStorage.getItem("token")) {
+            setAuthenticated(true)
+        }
+    }, [])
+
+    const onAuthenticated = (auth, token) => {
+        setAuthenticated(auth)
+        if (auth) {
+            localStorage.setItem("token", token)
+        }
+        else {
+            localStorage.removeItem("token")
+        }
+    }
+
+    if (authenticated) {
+        /* On protected */
+    }
+
     return (
-        <ThemeProvider colorMode="night">
-            <BaseStyles>
-                <Box display="grid" gridTemplateColumns="1fr 1fr" gridGap={3}>
-                    <Box p={3} borderColor="border.default" borderWidth={1} borderStyle="solid">
-                        1
-                    </Box>
-                    <Box p={3} borderColor="border.default" borderWidth={1} borderStyle="solid">
-                        2
-                    </Box>
-                    <Box p={3} borderColor="border.default" borderWidth={1} borderStyle="solid">
-                        3
-                    </Box>
-                </Box>
-            </BaseStyles>
+        <ThemeProvider colorMode="night" theme={customTheme}>
+            <Router>
+                <Navbar onAuthenticated={onAuthenticated} authenticated={authenticated} />
+                <Routes>
+                    <Route path="/"
+                        element={<Home onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
+                </Routes>
+            </Router>
         </ThemeProvider>
     )
 }
