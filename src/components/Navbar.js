@@ -20,14 +20,14 @@ const Navbar = props => {
         <>
             <BaseStyles>
                 <Header>
+                    <Box m="1">
+                        <Header.Item>
+                            <Header.Link href="#">Sign up</Header.Link>
+                        </Header.Item>
+                    </Box>
+
                     <Header.Item>
-                        <Header.Link href="#">About</Header.Link>
-                    </Header.Item>
-                    <Header.Item>
-                        <Header.Link href="#">Releases</Header.Link>
-                    </Header.Item>
-                    <Header.Item>
-                        <Header.Link href="#">Team</Header.Link>
+                        <Header.Link href="#">Log in</Header.Link>
                     </Header.Item>
                 </Header>
             </BaseStyles>

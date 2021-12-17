@@ -16,8 +16,8 @@ import Admin from './pages/admin/Index'
 
 const customTheme = deepmerge(theme, {
     fonts: {
-        "normal": "Roboto",
-        "mono": "Roboto"
+        "normal": "Roboto light",
+        "mono": "Roboto light"
     }
 })
 
