@@ -20,7 +20,7 @@ const Navbar = props => {
 
     return (
         <BaseStyles>
-            <Header>
+            <Header sx={{width: "100"}}>
                 <Header.Item className='lindent'>
                     <Box borderWidth={2} borderRadius={7} borderStyle="solid" pt={1} pb={1} pl={4} pr={4}>
                         <Header.Link to="#">
@@ -35,7 +35,7 @@ const Navbar = props => {
                     </Header.Link>
                 </Header.Item>
 
-                <Header.Item className='rindent'>
+                <Header.Item className='rindentp'>
                     <TextInput contrast size="large" aria-label="Search" name="search" placeholder="Search..." />
                 </Header.Item>
             </Header>

@@ -8,12 +8,43 @@
   margin-left: 20%;
 }
 
-.lin1 {
-  margin-left: 5%;
+.rindent {
+  margin-right: 20%;
 }
 
-.rindent {
+.lindentp {
+  padding-left: 20%;
+}
+
+.rindentp {
   padding-right: 20%;
+}
+
+.leaderboard {
+  display: flex;
+  justify-content: center;
+}
+
+/* Table styles */
+.table {
+  width: 59%;
+  background-color: #131820;
+  margin-top: 3em;
+}
+
+th {
+  background-color: #0b0b0b;
+  font-weight: 300;
+  padding: 1em;
+}
+
+td {
+  background-color: #131820;
+  font-weight: 300;
+  font-size: medium;
+  padding: 1em;
+  border-bottom: 1px solid #2a3343;
+  text-align: center;
 }
 
 /* ------------------ FONTS ------------------ */

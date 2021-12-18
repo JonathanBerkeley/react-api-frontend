@@ -7,18 +7,50 @@ const Leaderboard = props => {
     return (
         <BaseStyles>
             <Heading sx={header}> World Leaderboards </Heading>
-            <Box className="lindent rindent" mt={7}>
-                <Box backgroundColor="#0b0b0b" full className="center" padding={3} display="flex">
-                    <Text sx={push1}> Position </Text>
-                    <Text sx={push7}> Username </Text>
-                    <Text sx={push12}> Games </Text>
-                    <Text sx={push7}> Won </Text>
-                    <Text sx={push7}> Win% </Text>
-                    <Text sx={push9}> XP </Text>
-                    <Text sx={push8}> Damage </Text>
-                    <Text sx={push12}> Clan </Text>
-                </Box>
-            </Box>
+            <section className="leaderboard">
+                <table className="table">
+                    <tr>
+                        <th><Text sx={push1}> Position </Text></th>
+                        <th><Text sx={push5}> Username </Text></th>
+                        <th><Text sx={push9}> Games </Text></th>
+                        <th><Text sx={push7}> Won </Text></th>
+                        <th><Text sx={push7}> Win% </Text></th>
+                        <th><Text sx={push8}> XP </Text></th>
+                        <th><Text sx={push8}> Damage </Text></th>
+                        <th><Text sx={push13}> Clan </Text></th>
+                    </tr>
+                    <tr>
+                        <td><Text sx={push1}> 1 </Text></td>
+                        <td><Text sx={push5}> Alejandra90 </Text></td>
+                        <td><Text sx={push9}> 92 </Text></td>
+                        <td><Text sx={push7}> 51 </Text></td>
+                        <td><Text sx={push7}> 55.4% </Text></td>
+                        <td><Text sx={push8}> 77,845 </Text></td>
+                        <td><Text sx={push8}> 672,823 </Text></td>
+                        <td><Text sx={push13}> BrandOptimizeMaximize </Text></td>
+                    </tr>
+                    <tr>
+                        <td><Text sx={push1}> 1 </Text></td>
+                        <td><Text sx={push5}> Alejandra90 </Text></td>
+                        <td><Text sx={push9}> 92 </Text></td>
+                        <td><Text sx={push7}> 51 </Text></td>
+                        <td><Text sx={push7}> 55.4% </Text></td>
+                        <td><Text sx={push8}> 77,845 </Text></td>
+                        <td><Text sx={push8}> 672,823 </Text></td>
+                        <td><Text sx={push13}> BrandOptimizeMaximize </Text></td>
+                    </tr>
+                    <tr>
+                        <td><Text sx={push1}> 1 </Text></td>
+                        <td><Text sx={push5}> Alejandra90 </Text></td>
+                        <td><Text sx={push9}> 92 </Text></td>
+                        <td><Text sx={push7}> 51 </Text></td>
+                        <td><Text sx={push7}> 55.4% </Text></td>
+                        <td><Text sx={push8}> 77,845 </Text></td>
+                        <td><Text sx={push8}> 672,823 </Text></td>
+                        <td><Text sx={push13}> BrandOptimizeMaximize </Text></td>
+                    </tr>
+                </table>
+            </section>
         </BaseStyles>
     )
 }
@@ -33,12 +65,16 @@ const header = {
 
 const subheader = {
     fontSize: [14, 14, 16, 18],
-    textAlign: "center"
 }
 
 const push1 = {
     ...subheader,
     marginLeft: "1"
+}
+
+const push5 = {
+    ...subheader,
+    marginLeft: "5"
 }
 
 const push7 = {
@@ -53,7 +89,7 @@ const push8 = {
 
 const push9 = {
     ...subheader,
-    marginLeft: "12"
+    marginLeft: "9"
 }
 
 const push10 = {
@@ -61,10 +97,22 @@ const push10 = {
     marginLeft: "10"
 }
 
+const push11 = {
+    ...subheader,
+    marginLeft: "11"
+}
+
 const push12 = {
     ...subheader,
     marginLeft: "12"
 }
+
+const push13 = {
+    ...subheader,
+    marginLeft: "6",
+    marginRight: "6"
+}
+
 //#endregion
 
 export default Leaderboard

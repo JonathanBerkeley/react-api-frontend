@@ -45,7 +45,6 @@ const App = () => {
     }
 
     return (
-
         <ThemeProvider colorMode="night" theme={customTheme}>
             <Router>
                 <Navbar onAuthenticated={onAuthenticated} authenticated={authenticated} />
