@@ -26,6 +26,20 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JonathanBerkeley/react-api-frontend.git"
+  },
+  "keywords": [
+    "node.js",
+    "rest-api"
+  ],
+  "author": "Jonathan Berkeley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/JonathanBerkeley/react-api-frontend/issues"
+  },
+  "homepage": "https://github.com/JonathanBerkeley/react-api-frontend#readme",
   "eslintConfig": {
     "extends": [
       "react-app",
