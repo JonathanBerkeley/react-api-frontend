@@ -1,4 +1,4 @@
-import { BaseStyles, Box, Header, Heading, Spinner, Text } from "@primer/react"
+import { BaseStyles, Box, Header, Heading, Pagination, Spinner, Text } from "@primer/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
@@ -60,6 +60,7 @@ const Leaderboard = props => {
                     </tbody>
                 </table>
             </section>
+            <Pagination sx={{marginTop: 7, marginBottom: 7}} pageCount={15} currentPage={1} onPageChange={e => e.preventDefault()} />
         </BaseStyles>
     )
 }
