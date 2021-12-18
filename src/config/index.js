@@ -1,5 +1,8 @@
 import axios from 'axios'
 
-export default axios.create({
-    baseURL: ""
-})
+const Config = {
+    url: "/",
+    baseURL: "https://api.mainuser.dev"
+}
+
+export default Config

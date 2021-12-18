@@ -1,54 +1,63 @@
-import { BaseStyles, Box, Header, Heading, Text } from "@primer/react"
+import { BaseStyles, Box, Header, Heading, Spinner, Text } from "@primer/react"
 import axios from "axios"
+import { useEffect, useState } from "react"
 
+import Config from "../config/index"
 import "../styles/App.css"
 
+Config.headers = {
+    "response": "embed"
+}
+
 const Leaderboard = props => {
+    const [players, setPlayers] = useState(null)
+
+    useEffect(() => {
+        axios.get("player/xp/99999", Config)
+            .then(response => {
+                setPlayers(response.data)
+            })
+            .catch(console.err)
+    }, [])
+
+    if (!players) return (
+        <section className="leaderboard">
+            <Spinner className="center-spin" size="large" />
+        </section>
+    )
+
+    const playerList = players.result.map((player, index) => {
+        return (
+            <tr key={player._id}>
+                <td><Text sx={push1}> {index + 1} </Text></td>
+                <td><Text sx={push5}> {player.username} </Text></td>
+                <td><Text sx={push9}> {player.games} </Text></td>
+                <td><Text sx={push7}> {player.wins} </Text></td>
+                <td><Text sx={push7}> {~~((player.wins / player.games) * 100)}% </Text></td>
+                <td><Text sx={push8}> {player.xp} </Text></td>
+                <td><Text sx={push8}> {player.damage_done} </Text></td>
+                <td><Text sx={push13}> {player.clan ? player.clan.name : "No clan"} </Text></td>
+            </tr>
+        )
+    })
+
     return (
         <BaseStyles>
-            <Heading sx={header}> World Leaderboards </Heading>
             <section className="leaderboard">
                 <table className="table">
-                    <tr>
-                        <th><Text sx={push1}> Position </Text></th>
-                        <th><Text sx={push5}> Username </Text></th>
-                        <th><Text sx={push9}> Games </Text></th>
-                        <th><Text sx={push7}> Won </Text></th>
-                        <th><Text sx={push7}> Win% </Text></th>
-                        <th><Text sx={push8}> XP </Text></th>
-                        <th><Text sx={push8}> Damage </Text></th>
-                        <th><Text sx={push13}> Clan </Text></th>
-                    </tr>
-                    <tr>
-                        <td><Text sx={push1}> 1 </Text></td>
-                        <td><Text sx={push5}> Alejandra90 </Text></td>
-                        <td><Text sx={push9}> 92 </Text></td>
-                        <td><Text sx={push7}> 51 </Text></td>
-                        <td><Text sx={push7}> 55.4% </Text></td>
-                        <td><Text sx={push8}> 77,845 </Text></td>
-                        <td><Text sx={push8}> 672,823 </Text></td>
-                        <td><Text sx={push13}> BrandOptimizeMaximize </Text></td>
-                    </tr>
-                    <tr>
-                        <td><Text sx={push1}> 1 </Text></td>
-                        <td><Text sx={push5}> Alejandra90 </Text></td>
-                        <td><Text sx={push9}> 92 </Text></td>
-                        <td><Text sx={push7}> 51 </Text></td>
-                        <td><Text sx={push7}> 55.4% </Text></td>
-                        <td><Text sx={push8}> 77,845 </Text></td>
-                        <td><Text sx={push8}> 672,823 </Text></td>
-                        <td><Text sx={push13}> BrandOptimizeMaximize </Text></td>
-                    </tr>
-                    <tr>
-                        <td><Text sx={push1}> 1 </Text></td>
-                        <td><Text sx={push5}> Alejandra90 </Text></td>
-                        <td><Text sx={push9}> 92 </Text></td>
-                        <td><Text sx={push7}> 51 </Text></td>
-                        <td><Text sx={push7}> 55.4% </Text></td>
-                        <td><Text sx={push8}> 77,845 </Text></td>
-                        <td><Text sx={push8}> 672,823 </Text></td>
-                        <td><Text sx={push13}> BrandOptimizeMaximize </Text></td>
-                    </tr>
+                    <tbody>
+                        <tr>
+                            <th><Text sx={push1}> Position </Text></th>
+                            <th><Text sx={push5}> Username </Text></th>
+                            <th><Text sx={push9}> Games </Text></th>
+                            <th><Text sx={push7}> Won </Text></th>
+                            <th><Text sx={push7}> Win% </Text></th>
+                            <th><Text sx={push8}> XP </Text></th>
+                            <th><Text sx={push8}> Damage </Text></th>
+                            <th><Text sx={push13}> Clan </Text></th>
+                        </tr>
+                        {playerList}
+                    </tbody>
                 </table>
             </section>
         </BaseStyles>
@@ -56,13 +65,6 @@ const Leaderboard = props => {
 }
 
 //#region Styling
-const header = {
-    fontSize: [28, 32, 36, 38],
-    fontWeight: "light",
-    marginTop: 7,
-    textAlign: "center"
-}
-
 const subheader = {
     fontSize: [14, 14, 16, 18],
 }
