@@ -1,5 +1,7 @@
-import { Link, useNavigate } from 'react-router-dom'
-import { ThemeProvider, Box, BaseStyles, Heading, Header } from '@primer/react'
+import { useNavigate } from 'react-router-dom'
+import { Box, BaseStyles, Header, Text , Dropdown, FilteredSearch, TextInput } from '@primer/react'
+
+import '../styles/App.css'
 
 const Navbar = props => {
     let logoutButton
@@ -17,22 +19,29 @@ const Navbar = props => {
     // }
 
     return (
-        <>
-            <BaseStyles>
-                <Header>
-                    <Box m="1">
-                        <Header.Item>
-                            <Header.Link href="#">Sign up</Header.Link>
-                        </Header.Item>
+        <BaseStyles>
+            <Header>
+                <Header.Item className='lindent'>
+                    <Box borderWidth={2} borderRadius={7} borderStyle="solid" pt={1} pb={1} pl={4} pr={4}>
+                        <Header.Link to="#">
+                            <Text fontSize={[14, 14, 14, 16]}> Sign up </Text>
+                        </Header.Link>
                     </Box>
+                </Header.Item>
 
-                    <Header.Item>
-                        <Header.Link href="#">Log in</Header.Link>
-                    </Header.Item>
-                </Header>
-            </BaseStyles>
-        </>
+                <Header.Item full border={1} borderStyle="solid">
+                    <Header.Link to="#">
+                        <Text fontSize={[14, 14, 14, 16]}> Log in </Text>
+                    </Header.Link>
+                </Header.Item>
+
+                <Header.Item className='rindent'>
+                    <TextInput contrast size="large" aria-label="Search" name="search" placeholder="Search..." />
+                </Header.Item>
+            </Header>
+        </BaseStyles>
     )
 }
 
 export default Navbar
+
