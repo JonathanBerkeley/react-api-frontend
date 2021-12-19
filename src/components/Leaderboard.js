@@ -7,7 +7,7 @@ import CustomSpinner from "./CustomSpinner"
 import "../styles/App.css"
 import * as s from "../styles/Styles"
 
-// Requests embeded data from api
+// Requests embedded data from api
 Config.headers = {
     "response": "embed"
 }

@@ -30,14 +30,14 @@ const Navbar = props => {
 
                 <Header.Item>
                     <Box borderWidth={2} borderRadius={7} borderStyle="solid" pt={1} pb={1} pl={4} pr={4}>
-                        <Header.Link href="#">
+                        <Header.Link href="/signup">
                             <Text fontSize={[14, 14, 14, 16]}> Sign up </Text>
                         </Header.Link>
                     </Box>
                 </Header.Item>
 
                 <Header.Item full border={1} borderStyle="solid">
-                    <Header.Link href="#">
+                    <Header.Link href="/login">
                         <Text fontSize={[14, 14, 14, 16]}> Log in </Text>
                     </Header.Link>
                 </Header.Item>

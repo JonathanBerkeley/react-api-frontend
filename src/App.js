@@ -14,6 +14,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Player from './pages/Player'
 import Clan from './pages/Clan'
+import Signup from './pages/Signup'
 import Admin from './pages/admin/Index'
 import PageNotFound from './pages/404'
 
@@ -58,6 +59,8 @@ const App = () => {
                         element={<Player />} />
                     <Route path="/clan/:id"
                         element={<Clan />} />
+                    <Route path="/signup"
+                        element={<Signup />} />
                     <Route path="*"
                         element={<PageNotFound />} />
                 </Routes>
