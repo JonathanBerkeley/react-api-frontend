@@ -104,6 +104,7 @@ const Leaderboard = () => {
             <Pagination sx={{ marginTop: 7, marginBottom: 7 }} pageCount={pageCount} currentPage={lastPage} onPageChange={(e, page) => {
                 e.preventDefault()
                 setPage(page)
+                setPlayers(null)
 
                 // This is a workaround for the fact I don't have this functionality in my backend
                 // It's very limited and will produce inconsistent results
