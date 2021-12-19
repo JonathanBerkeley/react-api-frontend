@@ -1,8 +1,12 @@
 [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
 # React API Frontend
-Version 0.2.3    
+Version 0.2.6    
 Frontend for a videogame database    
+
+Frontend: https://mainuser.dev    
+Backend: https://api.mainuser.dev    
+Swagger (unstable): https://mainuser.dev/swagger/dist/index.html    
 
 # Project styleguide
 
