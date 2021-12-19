@@ -20,9 +20,9 @@ const Navbar = props => {
 
     return (
         <BaseStyles>
-            <Header sx={{width: "100"}}>
+            <Header sx={{ width: "100" }}>
 
-                <Header.Item className='lindent' sx={{paddingRight: 2}}>
+                <Header.Item className='lindent' sx={{ paddingRight: 2 }}>
                     <Header.Link href="/">
                         <img src="/rocket.png" alt="HomeButton" height="40" />
                     </Header.Link>
@@ -41,8 +41,6 @@ const Navbar = props => {
                         <Text fontSize={[14, 14, 14, 16]}> Log in </Text>
                     </Header.Link>
                 </Header.Item>
-
-                
 
                 <Header.Item className='rindentp'>
                     <TextInput contrast size="large" aria-label="Search" name="search" placeholder="Search..." />

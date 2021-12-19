@@ -1,0 +1,409 @@
+{
+  "info" : {
+    "description" : "Inertia game API",
+    "title" : "Mainuser-Api",
+    "version" : "0.2.0"
+  },
+  "openapi" : "3.0.0",
+  "paths" : {
+    "/" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Index",
+        "tags" : [ "Gets" ]
+      }
+    },
+    "/account/amount/30" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Get quantity",
+        "tags" : [ "Account" ]
+      }
+    },
+    "/account/count" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Count",
+        "tags" : [ "Account" ]
+      }
+    },
+    "/account/email/Jairo56@yahoo.com" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Email search",
+        "tags" : [ "Account" ]
+      }
+    },
+    "/account/id/5a821c6a-0b3c-4c89-bbfa-c490d0d46789" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "ID search",
+        "tags" : [ "Account" ]
+      }
+    },
+    "/account/login" : {
+      "post" : {
+        "description" : "",
+        "parameters" : [ {
+          "description" : "",
+          "in" : "header",
+          "name" : "Content-Type",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Login",
+        "tags" : [ "Account" ]
+      }
+    },
+    "/account/logout" : {
+      "post" : {
+        "description" : "",
+        "parameters" : [ {
+          "description" : "",
+          "in" : "header",
+          "name" : "Content-Type",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Logout",
+        "tags" : [ "Account" ]
+      }
+    },
+    "/account/name/Wayne Auer III" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Name search",
+        "tags" : [ "Account" ]
+      }
+    },
+    "/account/register" : {
+      "post" : {
+        "description" : "",
+        "parameters" : [ {
+          "description" : "",
+          "in" : "header",
+          "name" : "Content-Type",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Register",
+        "tags" : [ "Account" ]
+      }
+    },
+    "/clan/" : {
+      "get" : {
+        "parameters" : [ {
+          "description" : "",
+          "in" : "header",
+          "name" : "response",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Get Embed",
+        "tags" : [ "Clan" ]
+      }
+    },
+    "/clan/404" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "404",
+        "tags" : [ "Gets" ]
+      }
+    },
+    "/clan/amount/4" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Get quantity",
+        "tags" : [ "Clan" ]
+      }
+    },
+    "/clan/count" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Count",
+        "tags" : [ "Clan" ]
+      }
+    },
+    "/clan/id/5acdffbc-4a97-4aad-9b02-4434a76339f1" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "ID search",
+        "tags" : [ "Clan" ]
+      }
+    },
+    "/clan/xp/20000" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "XP search",
+        "tags" : [ "Clan" ]
+      }
+    },
+    "/player/" : {
+      "get" : {
+        "description" : "",
+        "parameters" : [ {
+          "description" : "",
+          "in" : "header",
+          "name" : "Content-Type",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "description" : "",
+          "in" : "header",
+          "name" : "response",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Get Embed",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/account/ba5dadf3-e668-4b96-8b96-c18bce0f51fb" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Account search",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/amount/2" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Get quantity",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/clan/cdcf3108-4d3f-468c-8e39-d503be2c6541" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Clan search",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/clan/null" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Clan search null",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/count" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Count",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/games/30" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Games search",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/id/2de31b36-4f24-4f9e-b7b3-85911c3d826e" : {
+      "get" : {
+        "parameters" : [ {
+          "description" : "",
+          "in" : "query",
+          "name" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        }, {
+          "description" : "",
+          "in" : "header",
+          "name" : "",
+          "required" : true,
+          "schema" : {
+            "type" : "string"
+          }
+        } ],
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "ID search",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/level/10" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Level search",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/username/Garry_Pollich" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Username search",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/wins/7" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "Wins search",
+        "tags" : [ "Player" ]
+      }
+    },
+    "/player/xp/99999" : {
+      "get" : {
+        "responses" : {
+          "200" : {
+            "description" : "successful operation"
+          }
+        },
+        "summary" : "XP search",
+        "tags" : [ "Player" ]
+      }
+    }
+  },
+  "servers" : [ {
+    "url" : "https://api.mainuser.dev"
+  } ],
+  "tags" : [ {
+    "description" : "",
+    "name" : "Account"
+  }, {
+    "description" : "",
+    "name" : "Put"
+  }, {
+    "description" : "",
+    "name" : "Gets"
+  }, {
+    "description" : "",
+    "name" : "Clan"
+  }, {
+    "description" : "",
+    "name" : "Player"
+  }, {
+    "description" : "",
+    "name" : "Admin"
+  }, {
+    "description" : "",
+    "name" : "Posts"
+  }, {
+    "description" : "",
+    "name" : "Delete"
+  } ]
+}
