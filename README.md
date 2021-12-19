@@ -7,6 +7,7 @@ Frontend for a videogame database
 Frontend: https://mainuser.dev    
 Backend: https://api.mainuser.dev    
 Swagger (unstable): https://mainuser.dev/swagger/dist/index.html    
+API Docs: https://github.com/JonathanBerkeley/advjs-api-backend#get-requests    
 
 # Project styleguide
 
