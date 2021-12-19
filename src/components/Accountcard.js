@@ -7,6 +7,7 @@ import CustomSpinner from "../components/CustomSpinner"
 import Config from "../config/index"
 import * as s from "../styles/Styles"
 import "../styles/App.css"
+import "../styles/Signup.css"
 import "../styles/Clan.css"
 
 // Displays formatted details and information about an account
@@ -49,8 +50,11 @@ const Accountcard = props => {
                     "Authorization": "Bearer " + localStorage.getItem("token")
                 }
             })
-            .then(navigate("/", { replace: true }))
-            .catch(console.error)
+                .then(() => {
+                    props.onAuthenticated(false)
+                    navigate("/", { replace: true })
+                })
+                .catch(console.error)
         }
     }
 
