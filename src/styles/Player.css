@@ -1,0 +1,21 @@
+.avatar {
+  float: right;
+  margin: 5%;
+  margin-right: 7%;
+}
+
+.playercard {
+  width: 35%;
+  background-color: #131820;
+  margin-top: 3em;
+}
+
+.underline {
+  width: 50%;
+  border-bottom: 3px solid #2a3343;
+}
+
+.rightalign {
+  float: right;
+  text-align: right;
+}

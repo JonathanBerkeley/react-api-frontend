@@ -1,10 +1,13 @@
-import { BaseStyles, Box, Header, Heading, Link, Pagination, Spinner, Text } from "@primer/react"
+import { BaseStyles, Link, Pagination, Text } from "@primer/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
 import Config from "../config/index"
+import CustomSpinner from "./CustomSpinner"
 import "../styles/App.css"
+import * as s from "../styles/Styles"
 
+// Requests embeded data from api
 Config.headers = {
     "response": "embed"
 }
@@ -34,13 +37,9 @@ const Leaderboard = () => {
             .catch(console.error)
     }, [])
 
-    if (!players) return (
-        // Show spinner while players load
-        <section className="leaderboard">
-            <Spinner className="center-spin" size="large" />
-        </section>
-    )
-    
+    // Show spinner while players load
+    if (!players) return <CustomSpinner />
+
     if (playerCount != null) {
         // Number of pages to show at bottom
         var pageCount = ~~(playerCount.playerCount / 15)
@@ -61,8 +60,8 @@ const Leaderboard = () => {
         // Only generate link if player is in a clan
         const clanElement = (
             player.clan ?
-                <td><Link href={`/clan/${playerClanID}`}><Text sx={push13}> {playerClan} </Text></Link></td> :
-                <td><Text sx={push13}> {playerClan} </Text></td>
+                <td><Link href={`/clan/${playerClanID}`}><Text sx={s.push13}> {playerClan} </Text></Link></td> :
+                <td><Text sx={s.push13}> {playerClan} </Text></td>
         )
 
         if (index === 0) firstPlayerXP = player.xp
@@ -70,13 +69,13 @@ const Leaderboard = () => {
 
         return (
             <tr key={player._id}>
-                <td><Text sx={push1}> {playerIndex} </Text></td>
-                <td><Link href={`/player/${player._id}`}><Text sx={push5}> {player.username} </Text></Link></td>
-                <td><Text sx={push9}> {player.games} </Text></td>
-                <td><Text sx={push7}> {player.wins} </Text></td>
-                <td><Text sx={push7}> {winPercentage}% </Text></td>
-                <td><Text sx={push8}> {player.xp} </Text></td>
-                <td><Text sx={push8}> {player.damage_done} </Text></td>
+                <td><Text sx={s.push1}> {playerIndex} </Text></td>
+                <td><Link href={`/player/${player._id}`}><Text sx={s.push5}> {player.username} </Text></Link></td>
+                <td><Text sx={s.push9}> {player.games} </Text></td>
+                <td><Text sx={s.push7}> {player.wins} </Text></td>
+                <td><Text sx={s.push7}> {winPercentage}% </Text></td>
+                <td><Text sx={s.push8}> {player.xp} </Text></td>
+                <td><Text sx={s.push8}> {player.damage_done} </Text></td>
                 {clanElement}
             </tr>
         )
@@ -84,18 +83,18 @@ const Leaderboard = () => {
 
     return (
         <BaseStyles>
-            <section className="leaderboard">
+            <section className="content">
                 <table className="table">
                     <tbody>
                         <tr>
-                            <th><Text sx={push1}> Position </Text></th>
-                            <th><Text sx={push5}> Username </Text></th>
-                            <th><Text sx={push9}> Games </Text></th>
-                            <th><Text sx={push7}> Won </Text></th>
-                            <th><Text sx={push7}> Win% </Text></th>
-                            <th><Text sx={push8}> XP </Text></th>
-                            <th><Text sx={push8}> Damage </Text></th>
-                            <th><Text sx={push13}> Clan </Text></th>
+                            <th><Text sx={s.push1}> Position </Text></th>
+                            <th><Text sx={s.push5}> Username </Text></th>
+                            <th><Text sx={s.push9}> Games </Text></th>
+                            <th><Text sx={s.push7}> Won </Text></th>
+                            <th><Text sx={s.push7}> Win% </Text></th>
+                            <th><Text sx={s.push8}> XP </Text></th>
+                            <th><Text sx={s.push8}> Damage </Text></th>
+                            <th><Text sx={s.push13}> Clan </Text></th>
                         </tr>
                         {playerList}
                     </tbody>
@@ -131,59 +130,6 @@ const Leaderboard = () => {
 const newURL = page => {
     return `${window.location.href}${page}`
 }
-//#endregion
-
-//#region Styling
-const subheader = {
-    fontSize: [14, 14, 16, 18],
-}
-
-const push1 = {
-    ...subheader,
-    marginLeft: "1"
-}
-
-const push5 = {
-    ...subheader,
-    marginLeft: "5"
-}
-
-const push7 = {
-    ...subheader,
-    marginLeft: "7"
-}
-
-const push8 = {
-    ...subheader,
-    marginLeft: "8"
-}
-
-const push9 = {
-    ...subheader,
-    marginLeft: "9"
-}
-
-const push10 = {
-    ...subheader,
-    marginLeft: "10"
-}
-
-const push11 = {
-    ...subheader,
-    marginLeft: "11"
-}
-
-const push12 = {
-    ...subheader,
-    marginLeft: "12"
-}
-
-const push13 = {
-    ...subheader,
-    marginLeft: "6",
-    marginRight: "6"
-}
-
 //#endregion
 
 export default Leaderboard

@@ -12,6 +12,7 @@ import Navbar from './components/Navbar'
 
 // Pages
 import Home from './pages/Home'
+import Player from './pages/Player'
 import Admin from './pages/admin/Index'
 
 const customTheme = deepmerge(theme, {
@@ -51,6 +52,8 @@ const App = () => {
                 <Routes>
                     <Route path="/"
                         element={<Home onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
+                    <Route path="/player/:id"
+                        element={<Player />} />
                 </Routes>
             </Router>
         </ThemeProvider>

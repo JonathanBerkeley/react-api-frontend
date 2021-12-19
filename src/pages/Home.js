@@ -1,33 +1,21 @@
-import { BaseStyles, Heading, Spinner } from "@primer/react"
+import { BaseStyles, Heading } from "@primer/react"
 import { lazy, Suspense } from "react"
+import CustomSpinner from "../components/CustomSpinner"
 
 import "../styles/App.css"
+import { HeaderStyle } from "../styles/Styles"
 
 const Leaderboard = lazy(() => import("../components/Leaderboard"))
 
-const Home = props => {
+const Home = () => {
     return (
         <BaseStyles>
-            <Heading sx={header}> World Leaderboards </Heading>
-            <Suspense fallback={fallback}>
+            <Heading sx={HeaderStyle}> World Leaderboards </Heading>
+            <Suspense fallback={<CustomSpinner />}>
                 <Leaderboard />
             </Suspense>
         </BaseStyles>
-
     )
 }
-
-const header = {
-    fontSize: [28, 32, 36, 38],
-    fontWeight: "light",
-    marginTop: 7,
-    textAlign: "center"
-}
-
-const fallback = (
-    <section className="leaderboard">
-        <Spinner className="center-spin" size="large" />
-    </section>
-)
 
 export default Home
