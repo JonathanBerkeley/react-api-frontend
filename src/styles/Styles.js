@@ -5,6 +5,12 @@ const HeaderStyle = {
     textAlign: "center"
 }
 
+const SubHeaderStyle = {
+    fontSize: [14, 16, 18, 19],
+    fontWeight: "light",
+    textAlign: "center"
+}
+
 const subheader = {
     fontSize: [14, 14, 16, 18],
 }
@@ -65,5 +71,5 @@ const push13 = {
     marginRight: "6"
 }
 
-export { HeaderStyle, subheader, push1, push2, push3, push5, push7,
-     push8, push9, push10, push11, push12, push13 }
+export { HeaderStyle, SubHeaderStyle, subheader, push1, push2, 
+    push3, push5, push7, push8, push9, push10, push11, push12, push13 }

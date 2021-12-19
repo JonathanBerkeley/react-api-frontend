@@ -1,4 +1,4 @@
-import { Avatar, BaseStyles, Box, Heading, Text } from "@primer/react"
+import { Avatar, BaseStyles, Box, Heading, Link, Text } from "@primer/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
@@ -34,9 +34,19 @@ const Playercard = () => {
 
     if (!player) return <CustomSpinner />
 
+    if (clan) {
+        var clanSubheader = (
+            <Link href={`/clan/${clan.result._id}`}>
+                <Heading sx={s.SubHeaderStyle}> {clan.result.name} </Heading>
+            </Link>
+        )
+    }
+
     return (
         <BaseStyles>
             <Heading sx={s.HeaderStyle}> {player.username} </Heading>
+            {(clanSubheader) ? clanSubheader : ""}
+            
             <section className="content">
                 <section className="playercard">
 
@@ -59,11 +69,6 @@ const Playercard = () => {
                     <Box m={5} className="underline">
                         <Text sx={s.HeaderStyle}> Dmg: <span className="rightalign">{
                             (~~(player.damage_done)).toLocaleString()
-                        }</span> </Text>
-                    </Box>
-                    <Box m={5} className="underline">
-                        <Text sx={s.HeaderStyle}> Clan: <span className="rightalign">{
-                            (clan != null) ? clan.result.name.slice(0, 10) : "No clan"
                         }</span> </Text>
                     </Box>
                 </section>
