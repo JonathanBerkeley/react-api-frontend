@@ -48,12 +48,6 @@ const App = () => {
         }
     }
 
-    /* On protected */
-    if (authenticated) {
-        console.log("authenticated")
-
-    }
-
     return (
         <ThemeProvider colorMode="night" theme={customTheme}>
             <Router>

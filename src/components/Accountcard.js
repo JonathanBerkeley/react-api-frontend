@@ -1,4 +1,4 @@
-import { BaseStyles, Box, ButtonDanger, Heading, Text } from "@primer/react"
+import { BaseStyles, Box, ButtonDanger, Heading, Link, Text } from "@primer/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
 import { useNavigate, useParams } from "react-router-dom"
@@ -58,6 +58,29 @@ const Accountcard = props => {
         }
     }
 
+    const updateEmail = e => {
+        e.preventDefault()
+        // eslint-disable-next-line no-restricted-globals
+        let email = prompt("Enter new email address")
+        if (email) {
+            axios({
+                method: "put",
+                url: `${Config.baseURL}/account/update`,
+                data: {
+                    email: email
+                },
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                }
+            })
+                .then(response => {
+                    console.log(response.data)
+                    setAccount((response.data) ? response.data.acc : null)
+                })
+                .catch(console.error)
+        }
+    }
+
     return (
         <BaseStyles>
             <section className="content">
@@ -66,7 +89,7 @@ const Accountcard = props => {
                         <Text sx={s.HeaderStyle}> Name: <span className="rightalign">{account.name}</span> </Text>
                     </Box>
                     <Box m={5} className="underlinefull">
-                        <Text sx={s.HeaderStyle}> Email: <span className="rightalign">{account.email}</span> </Text>
+                        <Text sx={s.HeaderStyle}> Email: <Link href="" onClick={updateEmail} className="rightalign">{account.email}</Link> </Text>
                     </Box>
 
                     <Box mb={7} className="content">
