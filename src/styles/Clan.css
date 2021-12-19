@@ -1,18 +1,13 @@
 .avatar {
-  float: right;
-  margin-top: 9%;
-  margin-right: 9%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-.playercard {
+.clancard {
   width: 35%;
   background-color: #131820;
   margin-top: 3em;
-}
-
-.underline {
-  width: 50%;
-  border-bottom: 3px solid #2a3343;
 }
 
 .underlinefull {

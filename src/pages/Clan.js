@@ -2,16 +2,16 @@ import { BaseStyles } from "@primer/react"
 import { lazy, Suspense } from "react"
 import CustomSpinner from "../components/CustomSpinner"
 
-const Playercard = lazy(() => import("../components/Playercard"))
+const Clancard = lazy(() => import("../components/Clancard"))
 
-const Player = () => {
+const Clan = () => {
     return (
         <BaseStyles>
             <Suspense fallback={<CustomSpinner />}>
-                <Playercard />
+                <Clancard />
             </Suspense>
         </BaseStyles>
     )
 }
 
-export default Player
+export default Clan

@@ -46,34 +46,35 @@ const Playercard = () => {
         <BaseStyles>
             <Heading sx={s.HeaderStyle}> {player.username} </Heading>
             {(clanSubheader) ? clanSubheader : ""}
-            
+
             <section className="content">
                 <section className="playercard">
 
-                    <Avatar className="avatar" src={`https://avatars.dicebear.com/api/bottts/${player._id}.svg`} alt={player.username} size="150" />
+                    <Avatar className="avatar" src={`https://avatars.dicebear.com/api/bottts/${player._id}.svg`} alt={player.username} size="175" />
                     <Box m={5} className="underline">
-                        <Text sx={s.HeaderStyle}> XP: <span className="rightalign">{player.xp}</span> </Text>
+                        <Text sx={s.HeaderStyle}> XP: <span className="rightalign">{player.xp.toLocaleString()}</span> </Text>
                     </Box>
                     <Box m={5} className="underline">
                         <Text sx={s.HeaderStyle}> Level: <span className="rightalign">{player.level}</span> </Text>
                     </Box>
                     <Box m={5} className="underline">
-                        <Text sx={s.HeaderStyle}> Games: <span className="rightalign">{player.games}</span> </Text>
+                        <Text sx={s.HeaderStyle}> Games: <span className="rightalign">{player.games.toLocaleString()}</span> </Text>
                     </Box>
-                    <Box m={5} className="underline">
+                    <Box m={5} className="underlinefull">
                         <Text sx={s.HeaderStyle}> Wins: <span className="rightalign">{player.wins}</span> </Text>
                     </Box>
-                    <Box m={5} className="underline">
+                    <Box m={5} className="underlinefull">
                         <Text sx={s.HeaderStyle}> Win%: <span className="rightalign">{~~(player.wins / player.games * 100)}%</span> </Text>
                     </Box>
-                    <Box m={5} className="underline">
+                    <Box m={5} className="underlinefull">
                         <Text sx={s.HeaderStyle}> Dmg: <span className="rightalign">{
                             (~~(player.damage_done)).toLocaleString()
                         }</span> </Text>
                     </Box>
+
                 </section>
             </section>
-            
+
         </BaseStyles>
     )
 }

@@ -1,7 +1,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
 # React API Frontend
-Version 0.1.7    
+Version 0.1.9    
 Frontend for a videogame database    
 
 # Project styleguide
@@ -29,7 +29,13 @@ let longLiteralNumber = 1_000_000
 
 ### Functions
 ```js
-PascalCase(args) {
+// File global
+function PascalCase(args) {
+    // Code
+}
+
+// Otherwise
+const functionPtr = () => {
     // Code
 }
 ```
