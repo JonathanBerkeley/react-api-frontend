@@ -87,3 +87,11 @@ td {
   font-weight: bold;
   font-style: italic;
 }
+
+.italic {
+  font-style: italic;
+}
+
+.red {
+  color: #ca1919;
+}

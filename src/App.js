@@ -15,6 +15,7 @@ import Home from './pages/Home'
 import Player from './pages/Player'
 import Clan from './pages/Clan'
 import Admin from './pages/admin/Index'
+import PageNotFound from './pages/404'
 
 const customTheme = deepmerge(theme, {
     fonts: {
@@ -57,6 +58,8 @@ const App = () => {
                         element={<Player />} />
                     <Route path="/clan/:id"
                         element={<Clan />} />
+                    <Route path="*"
+                        element={<PageNotFound />} />
                 </Routes>
             </Router>
         </ThemeProvider>
