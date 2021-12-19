@@ -15,6 +15,7 @@ import Home from './pages/Home'
 import Player from './pages/Player'
 import Clan from './pages/Clan'
 import Signup from './pages/Account/Signup'
+import Login from './pages/Account/Login'
 import Admin from './pages/admin/Index'
 import PageNotFound from './pages/404'
 
@@ -44,9 +45,10 @@ const App = () => {
         }
     }
 
+    /* On protected */
     if (authenticated) {
         console.log("authenticated")
-        /* On protected */
+        
     }
 
     return (
@@ -62,6 +64,8 @@ const App = () => {
                         element={<Clan />} />
                     <Route path="/signup"
                         element={<Signup onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
+                    <Route path="/login"
+                        element={<Login onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
                     <Route path="*"
                         element={<PageNotFound />} />
                 </Routes>
