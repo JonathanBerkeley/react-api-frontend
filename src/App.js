@@ -16,7 +16,7 @@ import Player from './pages/Player'
 import Clan from './pages/Clan'
 import Signup from './pages/Account/Signup'
 import Login from './pages/Account/Login'
-import Admin from './pages/admin/Index'
+//import Admin from './pages/admin/Index'
 import PageNotFound from './pages/404'
 
 const customTheme = deepmerge(theme, {

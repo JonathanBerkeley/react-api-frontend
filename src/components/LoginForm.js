@@ -27,9 +27,6 @@ const LoginForm = props => {
             "password": form.password
         }
 
-        console.log(form.email)
-        console.log(form.password)
-
         axios.post(`${Config.baseURL}/account/login`, formInfo)
             .then(response => {
                 props.onAuthenticated(true, response.data.auth_token)

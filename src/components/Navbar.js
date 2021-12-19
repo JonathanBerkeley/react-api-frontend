@@ -2,21 +2,43 @@ import { useNavigate } from 'react-router-dom'
 import { Box, BaseStyles, Header, Text, TextInput } from '@primer/react'
 
 import '../styles/App.css'
+import Config from "../config/index"
+import axios from 'axios'
 
 const Navbar = props => {
-    let logoutButton
-    // let navigate = useNavigate()
+    let button
+    let navigate = useNavigate()
 
-    // const logout = () => {
-    //     props.onAuthenticate(false)
-    //     navigate('/', { replace: true })
-    // }
+    const logout = () => {
+        props.onAuthenticated(false)
 
-    // if (props.authenticated) {
-    //     logoutButton = (
-    //         <button onClick={logout}>Logout</button>
-    //     )
-    // }
+        if (localStorage.getItem("token")) {
+            axios({
+                method: "post",
+                url: `${Config.baseURL}/account/logout`,
+                headers: {
+                    "Authorization": "Bearer " + localStorage.getItem("token")
+                }
+            })
+            .then(navigate("/", { replace: true }))
+            .catch(console.error)
+        }
+    }
+
+    if (props.authenticated) {
+        button = (
+            <Header.Link onClick={logout} href="/">
+                <Text fontSize={[14, 14, 14, 16]}> Log out </Text>
+            </Header.Link>
+        )
+    }
+    else {
+        button = (
+            <Header.Link href="/login">
+                <Text fontSize={[14, 14, 14, 16]}> Log in </Text>
+            </Header.Link>
+        )
+    }
 
     return (
         <BaseStyles>
@@ -37,9 +59,7 @@ const Navbar = props => {
                 </Header.Item>
 
                 <Header.Item full border={1} borderStyle="solid">
-                    <Header.Link href="/login">
-                        <Text fontSize={[14, 14, 14, 16]}> Log in </Text>
-                    </Header.Link>
+                    {button}
                 </Header.Item>
 
                 <Header.Item className='rindentp'>
