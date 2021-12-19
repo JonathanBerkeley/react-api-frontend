@@ -17,7 +17,7 @@ import Clan from './pages/Clan'
 import Signup from './pages/Account/Signup'
 import Login from './pages/Account/Login'
 import Account from './pages/Account/Account'
-//import Admin from './pages/admin/Index'
+import Admin from './pages/Admin'
 import PageNotFound from './pages/404'
 
 const customTheme = deepmerge(theme, {
@@ -65,6 +65,8 @@ const App = () => {
                         element={<Login onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
                     <Route path="/account"
                         element={<Account onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
+                    <Route path="/admin"
+                        element={<Admin onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
                     <Route path="*"
                         element={<PageNotFound />} />
                 </Routes>

@@ -1,7 +1,7 @@
-import { BaseStyles, Box, ButtonDanger, Heading, Link, Text } from "@primer/react"
+import { BaseStyles, Box, ButtonDanger, Link, Text } from "@primer/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
-import { useNavigate, useParams } from "react-router-dom"
+import { useNavigate } from "react-router-dom"
 
 import CustomSpinner from "../components/CustomSpinner"
 import Config from "../config/index"
