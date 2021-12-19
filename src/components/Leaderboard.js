@@ -1,4 +1,4 @@
-import { BaseStyles, Box, Header, Heading, Pagination, Spinner, Text } from "@primer/react"
+import { BaseStyles, Box, Header, Heading, Link, Pagination, Spinner, Text } from "@primer/react"
 import axios from "axios"
 import { useEffect, useState } from "react"
 
@@ -35,18 +35,35 @@ const Leaderboard = () => {
     }, [])
 
     if (!players) return (
+        // Show spinner while players load
         <section className="leaderboard">
             <Spinner className="center-spin" size="large" />
         </section>
     )
-
-    let pageCount = ~~(playerCount.playerCount / 15) // Number of pages to show at bottom
-    if (pageCount < 1) return null
+    
+    if (playerCount != null) {
+        // Number of pages to show at bottom
+        var pageCount = ~~(playerCount.playerCount / 15)
+        if (pageCount < 1) return null
+    }
+    else {
+        return null
+    }
 
     const playerList = players.result.map((player, index, row) => {
         // Positions of players aren't stored in database, made here instead
         const playerIndex = index + (lastPage * 15) - 14
         const winPercentage = ~~((player.wins / player.games) * 100)
+
+        const playerClan = player.clan ? player.clan.name : "No clan"
+        const playerClanID = player.clan ? player.clan._id : ""
+
+        // Only generate link if player is in a clan
+        const clanElement = (
+            player.clan ?
+                <td><Link href={`/clan/${playerClanID}`}><Text sx={push13}> {playerClan} </Text></Link></td> :
+                <td><Text sx={push13}> {playerClan} </Text></td>
+        )
 
         if (index === 0) firstPlayerXP = player.xp
         if (index + 1 === row.length) lastPlayerXP = player.xp
@@ -54,13 +71,13 @@ const Leaderboard = () => {
         return (
             <tr key={player._id}>
                 <td><Text sx={push1}> {playerIndex} </Text></td>
-                <td><Text sx={push5}> {player.username} </Text></td>
+                <td><Link href={`/player/${player._id}`}><Text sx={push5}> {player.username} </Text></Link></td>
                 <td><Text sx={push9}> {player.games} </Text></td>
                 <td><Text sx={push7}> {player.wins} </Text></td>
                 <td><Text sx={push7}> {winPercentage}% </Text></td>
                 <td><Text sx={push8}> {player.xp} </Text></td>
                 <td><Text sx={push8}> {player.damage_done} </Text></td>
-                <td><Text sx={push13}> {player.clan ? player.clan.name : "No clan"} </Text></td>
+                {clanElement}
             </tr>
         )
     })
@@ -102,8 +119,6 @@ const Leaderboard = () => {
                     let pageDifference = lastPage - page
                     seekXP = firstPlayerXP + pageDifference
                 }
-
-                
 
                 axiosWrapper(`xp/${seekXP}`)
             }} hrefBuilder={newURL} />
