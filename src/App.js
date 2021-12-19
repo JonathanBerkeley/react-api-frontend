@@ -14,7 +14,7 @@ import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Player from './pages/Player'
 import Clan from './pages/Clan'
-import Signup from './pages/Signup'
+import Signup from './pages/Account/Signup'
 import Admin from './pages/admin/Index'
 import PageNotFound from './pages/404'
 
@@ -45,6 +45,7 @@ const App = () => {
     }
 
     if (authenticated) {
+        console.log("authenticated")
         /* On protected */
     }
 
@@ -54,13 +55,13 @@ const App = () => {
                 <Navbar onAuthenticated={onAuthenticated} authenticated={authenticated} />
                 <Routes>
                     <Route path="/"
-                        element={<Home onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
+                        element={<Home />} />
                     <Route path="/player/:id"
                         element={<Player />} />
                     <Route path="/clan/:id"
                         element={<Clan />} />
                     <Route path="/signup"
-                        element={<Signup />} />
+                        element={<Signup onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
                     <Route path="*"
                         element={<PageNotFound />} />
                 </Routes>

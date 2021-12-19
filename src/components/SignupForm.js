@@ -1,13 +1,13 @@
 import { useState } from "react"
 import axios from "axios"
-import { BaseStyles, Box, Button, ButtonPrimary, Checkbox, Heading, Link, Text, TextInput } from "@primer/react"
+import { BaseStyles, Box, ButtonPrimary, Checkbox, Heading, Link, Text, TextInput } from "@primer/react"
 
 import Config from "../config/index"
 import * as s from "../styles/Styles"
 import "../styles/Signup.css"
 
 const SignupForm = props => {
-    const [form, setForm] = useState({ email: "", password: "" })
+    const [form, setForm] = useState({ fname: "", lname: "", email: "", password: "" })
 
     const handleForm = e => {
         setForm(prevState => ({
@@ -17,56 +17,56 @@ const SignupForm = props => {
     }
 
     const submitForm = () => {
-        axios.post("", Config)
+        let formInfo = {
+            "name": form.fname + form.lname,
+            "email": form.email,
+            "password": form.password
+        }
+
+        axios.post(`${Config.baseURL}/account/register`, formInfo)
             .then(response => {
-                console.log(response.data.token)
-                props.onAuthenticated(true, response.data.token)
+                props.onAuthenticated(true, response.data.auth_token)
             })
-            .catch(err => console.log(err))
+            .catch(console.error)
     }
 
     return (
         <BaseStyles>
             <section className="content">
-                <section className="formgr signupcard">
+                <form className="signupcard">
                     <Box m={5} className="formfriends">
                         <Box className="boxsize">
                             <Heading sx={s.subheader}> First name </Heading>
-                            <TextInput className="inputfull" />
+                            <TextInput className="inputfull" name="fname" onChange={handleForm} required />
                         </Box>
                         <Box ml={3} className="boxsize">
                             <Heading sx={s.subheader}> Last name </Heading>
-                            <TextInput className="inputfull" />
+                            <TextInput className="inputfull" name="lname" onChange={handleForm} required />
                         </Box>
                     </Box>
                     <Box m={5}>
                         <Heading sx={s.subheader}> Email </Heading>
-                        <TextInput className="inputfull" />
+                        <TextInput type="email" className="inputfull" name="email" onChange={handleForm} required />
                     </Box>
                     <Box m={5}>
                         <Heading sx={s.subheader}> Password </Heading>
-                        <TextInput className="inputfull" />
+                        <TextInput type="password" className="inputfull" name="password" onChange={handleForm} required />
                     </Box>
                     <Box m={5}>
-                        <Heading sx={s.subheader}> Confirm password </Heading>
-                        <TextInput className="inputfull" />
-                    </Box>
-                    <Box m={5}>
-                        <Checkbox id="checkbox" />
+                        <Checkbox id="checkbox" required />
                         <Text as="label" htmlFor="checkbox" sx={{ fontSize: 2, fontWeight: 'light', marginLeft: 1 }}>
-                            I agree to the <Link 
-                                href="https://www.termsandconditionsgenerator.com/live.php?token=AMu8YEOgcITfI91mXC3PAKwliGNYgw7n" 
+                            I agree to the <Link
+                                href="https://www.termsandconditionsgenerator.com/live.php?token=AMu8YEOgcITfI91mXC3PAKwliGNYgw7n"
                                 target="_blank"
                                 underline>
-                                    terms and conditions
+                                terms and conditions
                             </Link>
                         </Text>
                     </Box>
-                    <Box m={5} className="formfriends">
-                        <ButtonPrimary className="submit"> Submit </ButtonPrimary>
+                    <Box mb={7} className="formfriends">
+                        <ButtonPrimary type="button" className="submit" onClick={submitForm}> Submit </ButtonPrimary>
                     </Box>
-
-                </section>
+                </form>
             </section>
         </BaseStyles>
     )
