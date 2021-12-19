@@ -18,6 +18,7 @@ import Signup from './pages/Account/Signup'
 import Login from './pages/Account/Login'
 import Account from './pages/Account/Account'
 import Admin from './pages/Admin'
+import Screencast from './pages/Screencast'
 import PageNotFound from './pages/404'
 
 const customTheme = deepmerge(theme, {
@@ -67,6 +68,8 @@ const App = () => {
                         element={<Account onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
                     <Route path="/admin"
                         element={<Admin onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
+                    <Route path="/screencast"
+                        element={<Screencast />} />
                     <Route path="*"
                         element={<PageNotFound />} />
                 </Routes>
