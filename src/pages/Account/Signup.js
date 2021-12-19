@@ -4,6 +4,7 @@ import CustomSpinner from "../../components/CustomSpinner"
 
 import { HeaderStyle } from "../../styles/Styles"
 
+// Lazy imports, if the loading takes a long time a spinner can be shown instead
 const SignupForm = lazy(() => import("../../components/SignupForm"))
 
 const Signup = props => {

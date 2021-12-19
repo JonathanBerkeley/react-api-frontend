@@ -1,3 +1,5 @@
+// Styling for react components
+
 const HeaderStyle = {
     fontSize: [28, 32, 36, 38],
     fontWeight: "light",
@@ -15,6 +17,7 @@ const subheader = {
     fontSize: [14, 14, 16, 18],
 }
 
+//#region Indentation
 const push1 = {
     ...subheader,
     marginLeft: "1"
@@ -70,6 +73,7 @@ const push13 = {
     marginLeft: "6",
     marginRight: "6"
 }
+//#endregion
 
 export { HeaderStyle, SubHeaderStyle, subheader, push1, push2, 
     push3, push5, push7, push8, push9, push10, push11, push12, push13 }

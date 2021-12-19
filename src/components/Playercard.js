@@ -9,6 +9,7 @@ import "../styles/App.css"
 import "../styles/Player.css"
 import * as s from "../styles/Styles"
 
+// Player card displays formatted details about a player
 const Playercard = () => {
     let { id } = useParams()
     const [player, setPlayer] = useState(null)

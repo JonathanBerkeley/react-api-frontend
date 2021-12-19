@@ -7,6 +7,7 @@ import * as s from "../styles/Styles"
 import "../styles/Signup.css"
 import { useNavigate } from "react-router-dom"
 
+// Signup form - functionality and design to receive user input and register an account
 const SignupForm = props => {
     const [form, setForm] = useState({ fname: "", lname: "", email: "", password: "" })
     let navigate = useNavigate()
@@ -33,7 +34,10 @@ const SignupForm = props => {
                 props.onAuthenticated(true, response.data.auth_token)
                 navigate("/")
             })
-            .catch(console.error)
+            .catch(err => {
+                console.error(err)
+                alert("Invalid registration details")
+            })
     }
 
     return (

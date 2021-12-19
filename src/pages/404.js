@@ -3,9 +3,11 @@ import { useLocation } from 'react-router-dom'
 
 import { HeaderStyle } from "../styles/Styles"
 
+// Displayed on invalid routes
 const PageNotFound = () => {
     let location = useLocation();
 
+    // Cut off abnormally long paths
     if (location.pathname.length > 40) 
         location.pathname = location.pathname.slice(0, 35) + "..."
 

@@ -10,7 +10,8 @@ import "../styles/App.css"
 import "../styles/Clan.css"
 import * as s from "../styles/Styles"
 
-const Playercard = () => {
+// Displays formatted details and information about a clan
+const Clancard = () => {
     let { id } = useParams()
     const [clan, setClan] = useState(null)
 
@@ -26,6 +27,7 @@ const Playercard = () => {
 
     let dateStruct = ParseDate(clan.created_date)
 
+    // For every player in the database, load their image at the bottom with a link to their profile
     const playerList = clan.players.map(player => {
         return (
             <ReactLink to={`/player/${player}`}>
@@ -62,6 +64,7 @@ const Playercard = () => {
     )
 }
 
+// Format the date out of that ugly ISO date it's stored as
 function ParseDate(str) {
     return ({
         "year": str.slice(0, 4),
@@ -70,4 +73,4 @@ function ParseDate(str) {
     })
 }
 
-export default Playercard
+export default Clancard

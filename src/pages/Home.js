@@ -4,6 +4,7 @@ import CustomSpinner from "../components/CustomSpinner"
 
 import { HeaderStyle } from "../styles/Styles"
 
+// Lazy imports, if the loading takes a long time a spinner can be shown instead
 const Leaderboard = lazy(() => import("../components/Leaderboard"))
 
 const Home = () => {

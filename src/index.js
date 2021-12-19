@@ -5,6 +5,7 @@ import App from './App'
 import './styles/App.css'
 import './styles/index.css'
 
+// Entry point of application
 ReactDOM.render(
     <React.StrictMode>
         <App />

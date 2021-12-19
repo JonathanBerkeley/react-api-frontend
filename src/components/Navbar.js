@@ -5,8 +5,10 @@ import '../styles/App.css'
 import Config from "../config/index"
 import axios from 'axios'
 
+// Navigation bar at the top of the screen on all pages
 const Navbar = props => {
-    let button
+    let logButton
+    let signButton
     let navigate = useNavigate()
 
     const logout = () => {
@@ -25,17 +27,28 @@ const Navbar = props => {
         }
     }
 
+    // Buttons in Navbar depend on authentication status
     if (props.authenticated) {
-        button = (
+        logButton = (
             <Header.Link onClick={logout} href="/">
                 <Text fontSize={[14, 14, 14, 16]}> Log out </Text>
             </Header.Link>
         )
+        signButton = (
+            <Header.Link href="/account">
+                <Text fontSize={[14, 14, 14, 16]}> My account </Text>
+            </Header.Link>
+        )
     }
     else {
-        button = (
+        logButton = (
             <Header.Link href="/login">
                 <Text fontSize={[14, 14, 14, 16]}> Log in </Text>
+            </Header.Link>
+        )
+        signButton = (
+            <Header.Link href="/signup">
+                <Text fontSize={[14, 14, 14, 16]}> Sign up </Text>
             </Header.Link>
         )
     }
@@ -46,20 +59,18 @@ const Navbar = props => {
 
                 <Header.Item className='lindent' sx={{ paddingRight: 2 }}>
                     <Header.Link href="/">
-                        <img src="/rocket.png" alt="HomeButton" height="40" />
+                        <img src="/rocket.png" alt="HomelogButton" height="40" />
                     </Header.Link>
                 </Header.Item>
 
                 <Header.Item>
                     <Box borderWidth={2} borderRadius={7} borderStyle="solid" pt={1} pb={1} pl={4} pr={4}>
-                        <Header.Link href="/signup">
-                            <Text fontSize={[14, 14, 14, 16]}> Sign up </Text>
-                        </Header.Link>
+                        {signButton}
                     </Box>
                 </Header.Item>
 
                 <Header.Item full border={1} borderStyle="solid">
-                    {button}
+                    {logButton}
                 </Header.Item>
 
                 <Header.Item className='rindentp'>

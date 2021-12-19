@@ -12,6 +12,7 @@ Config.headers = {
     "response": "embed"
 }
 
+// Displays leaderboard of players sorted by XP
 const Leaderboard = () => {
     const [players, setPlayers] = useState(null)
     const [playerCount, setPlayerCount] = useState(null)

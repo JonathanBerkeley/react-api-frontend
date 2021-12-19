@@ -16,6 +16,7 @@ import Player from './pages/Player'
 import Clan from './pages/Clan'
 import Signup from './pages/Account/Signup'
 import Login from './pages/Account/Login'
+import Account from './pages/Account/Account'
 //import Admin from './pages/admin/Index'
 import PageNotFound from './pages/404'
 
@@ -26,6 +27,7 @@ const customTheme = deepmerge(theme, {
     }
 })
 
+// Root component, superceded by only index.js
 const App = () => {
     const [authenticated, setAuthenticated] = useState(false)
 
@@ -35,6 +37,7 @@ const App = () => {
         }
     }, [])
 
+    // Responsible for managing authentication status throughout application
     const onAuthenticated = (auth, token) => {
         setAuthenticated(auth)
         if (auth) {
@@ -48,7 +51,7 @@ const App = () => {
     /* On protected */
     if (authenticated) {
         console.log("authenticated")
-        
+
     }
 
     return (
@@ -66,6 +69,8 @@ const App = () => {
                         element={<Signup onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
                     <Route path="/login"
                         element={<Login onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
+                    <Route path="/account"
+                        element={<Account onAuthenticated={onAuthenticated} authenticated={authenticated} />} />
                     <Route path="*"
                         element={<PageNotFound />} />
                 </Routes>

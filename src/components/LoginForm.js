@@ -7,6 +7,7 @@ import * as s from "../styles/Styles"
 import "../styles/Signup.css"
 import { useNavigate } from "react-router-dom"
 
+// Login form to become authenticated with valid details
 const LoginForm = props => {
     const [form, setForm] = useState({ email: "", password: "" })
     let navigate = useNavigate()
@@ -32,7 +33,10 @@ const LoginForm = props => {
                 props.onAuthenticated(true, response.data.auth_token)
                 navigate("/")
             })
-            .catch(console.error)
+            .catch(err => {
+                console.error(err)
+                alert("Incorrect information")
+            })
     }
 
     return (

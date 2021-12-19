@@ -5,17 +5,17 @@ import CustomSpinner from "../../components/CustomSpinner"
 import { HeaderStyle } from "../../styles/Styles"
 
 // Lazy imports, if the loading takes a long time a spinner can be shown instead
-const LoginForm = lazy(() => import("../../components/LoginForm"))
+const Accountcard = lazy(() => import("../../components/Accountcard"))
 
-const Login = props => {
+const Account = () => {
     return (
         <BaseStyles>
-            <Heading sx={HeaderStyle}> Log in </Heading>
+            <Heading sx={HeaderStyle}> Account </Heading>
             <Suspense fallback={<CustomSpinner />}>
-                <LoginForm onAuthenticated={props.onAuthenticated} />
+                <Accountcard />
             </Suspense>
         </BaseStyles>
     )
 }
 
-export default Login
+export default Account
