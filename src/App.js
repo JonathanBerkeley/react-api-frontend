@@ -20,8 +20,8 @@ import PageNotFound from './pages/404'
 
 const customTheme = deepmerge(theme, {
     fonts: {
-        "normal": "Roboto light",
-        "mono": "Roboto light"
+        "normal": "Roboto light, sans-serif",
+        "mono": "Roboto light, sans-serif"
     }
 })
 

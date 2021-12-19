@@ -1,7 +1,7 @@
 [![forthebadge](https://forthebadge.com/images/badges/open-source.svg)](https://forthebadge.com)
 [![forthebadge](https://forthebadge.com/images/badges/uses-badges.svg)](https://forthebadge.com)
 # React API Frontend
-Version 0.2.2    
+Version 0.2.3    
 Frontend for a videogame database    
 
 # Project styleguide
@@ -11,7 +11,7 @@ Frontend for a videogame database
 - ES imports
 - Newline between functions / classes / logical blocks
 - Foreign imports seperated from local imports
-- 4 spaces indentation
+- 4 spaces indentation, 2 spaces indentation for .css
 - ```// Space at beginning of line comment```
 
 ### Naming    

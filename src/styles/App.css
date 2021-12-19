@@ -95,3 +95,7 @@ td {
 .red {
   color: #ca1919;
 }
+
+body {
+  font-family: 'Roboto', sans-serif;
+}

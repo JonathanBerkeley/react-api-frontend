@@ -1,0 +1,38 @@
+.signupcard {
+  width: 30%;
+  background-color: #131820;
+  margin-top: 3em;
+}
+
+.inputfull {
+  width: 100%;
+}
+
+.boxsize {
+  width: 100%;
+}
+
+.inputauto {
+  width: auto;
+}
+
+.submit {
+  margin-top: 5%;
+  width: 35%;
+  padding: 2%;
+  font-size: larger;
+}
+
+.formfriends {
+  display: flex;
+  justify-content:space-evenly;
+}
+
+.right {
+  margin-left: auto;
+  margin-right: 12%;
+}
+
+.form {
+  display: inline-block;
+}
