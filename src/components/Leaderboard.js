@@ -9,15 +9,29 @@ Config.headers = {
     "response": "embed"
 }
 
-const Leaderboard = props => {
+const Leaderboard = () => {
     const [players, setPlayers] = useState(null)
+    const [playerCount, setPlayerCount] = useState(null)
+    const [lastPage, setPage] = useState(1)
 
-    useEffect(() => {
-        axios.get("player/xp/99999", Config)
+    let firstPlayerXP
+    let lastPlayerXP
+
+    const axiosWrapper = (query) => {
+        axios.get(`player/${query}`, Config)
             .then(response => {
                 setPlayers(response.data)
             })
-            .catch(console.err)
+            .catch(console.error)
+    }
+
+    useEffect(() => {
+        axiosWrapper("xp/99999")
+        axios.get("player/count", Config)
+            .then(response => {
+                setPlayerCount(response.data)
+            })
+            .catch(console.error)
     }, [])
 
     if (!players) return (
@@ -26,14 +40,24 @@ const Leaderboard = props => {
         </section>
     )
 
-    const playerList = players.result.map((player, index) => {
+    let pageCount = ~~(playerCount.playerCount / 15) // Number of pages to show at bottom
+    if (pageCount < 1) return null
+
+    const playerList = players.result.map((player, index, row) => {
+        // Positions of players aren't stored in database, made here instead
+        const playerIndex = index + (lastPage * 15) - 14
+        const winPercentage = ~~((player.wins / player.games) * 100)
+
+        if (index === 0) firstPlayerXP = player.xp
+        if (index + 1 === row.length) lastPlayerXP = player.xp
+
         return (
             <tr key={player._id}>
-                <td><Text sx={push1}> {index + 1} </Text></td>
+                <td><Text sx={push1}> {playerIndex} </Text></td>
                 <td><Text sx={push5}> {player.username} </Text></td>
                 <td><Text sx={push9}> {player.games} </Text></td>
                 <td><Text sx={push7}> {player.wins} </Text></td>
-                <td><Text sx={push7}> {~~((player.wins / player.games) * 100)}% </Text></td>
+                <td><Text sx={push7}> {winPercentage}% </Text></td>
                 <td><Text sx={push8}> {player.xp} </Text></td>
                 <td><Text sx={push8}> {player.damage_done} </Text></td>
                 <td><Text sx={push13}> {player.clan ? player.clan.name : "No clan"} </Text></td>
@@ -60,10 +84,38 @@ const Leaderboard = props => {
                     </tbody>
                 </table>
             </section>
-            <Pagination sx={{marginTop: 7, marginBottom: 7}} pageCount={15} currentPage={1} onPageChange={e => e.preventDefault()} />
+            <Pagination sx={{ marginTop: 7, marginBottom: 7 }} pageCount={pageCount} currentPage={lastPage} onPageChange={(e, page) => {
+                e.preventDefault()
+                setPage(page)
+
+                // This is a workaround for the fact I don't have this functionality in my backend
+                // It's very limited and will produce inconsistent results
+                let seekXP
+                if (page === 1) {
+                    seekXP = "99999"
+                }
+                else if (page > lastPage) {
+                    let pageDifference = page - lastPage
+                    seekXP = lastPlayerXP - pageDifference
+                }
+                else {
+                    let pageDifference = lastPage - page
+                    seekXP = firstPlayerXP + pageDifference
+                }
+
+                
+
+                axiosWrapper(`xp/${seekXP}`)
+            }} hrefBuilder={newURL} />
         </BaseStyles>
     )
 }
+
+//#region Utility
+const newURL = page => {
+    return `${window.location.href}${page}`
+}
+//#endregion
 
 //#region Styling
 const subheader = {
