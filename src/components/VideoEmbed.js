@@ -12,9 +12,9 @@ const VideoEmbed = () => {
                 <section className="clancard">
                     <Box m={5} className="underlinefull">
                         <iframe 
-                            width="560"
-                            height="315"
-                            src=""
+                            width="1120"
+                            height="630"
+                            src="https://youtu.be/nFaZnGhwbQA"
                             title="YouTube video player" 
                             frameBorder="0" 
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
