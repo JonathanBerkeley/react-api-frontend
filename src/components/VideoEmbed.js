@@ -9,19 +9,17 @@ const VideoEmbed = () => {
     return (
         <BaseStyles>
             <section className="content">
-                <section className="clancard">
-                    <Box m={5} className="underlinefull">
-                        <iframe 
-                            width="1120"
-                            height="630"
-                            src="https://youtu.be/nFaZnGhwbQA"
-                            title="YouTube video player" 
-                            frameBorder="0" 
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                            allowFullScreen>
-                        </iframe>
-                    </Box>
-                </section>
+                <Box m={5}>
+                    <iframe
+                        width="1120"
+                        height="630"
+                        src="https://www.youtube.com/embed/nFaZnGhwbQA"
+                        title="YouTube video player"
+                        frameBorder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                        allowFullScreen>
+                    </iframe>
+                </Box>
             </section>
         </BaseStyles>
     )
