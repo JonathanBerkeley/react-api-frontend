@@ -4,6 +4,7 @@
 Version 0.3.1    
 Frontend for a videogame database    
 
+## Former domains (No longer hosted)     
 Frontend: https://mainuser.dev    
 Backend: https://api.mainuser.dev    
 Swagger (unstable): https://mainuser.dev/swagger/dist/index.html    
